@@ -22,23 +22,36 @@ num_tables = len(tables)
 table_ref = dataset_ref.table('global_air_quality')
 
 table = client.get_table(table_ref)
+# Preview the first five lines of the "global_air_quality" table
+#print(client.list_rows(table, max_results=5).to_dataframe())
 
 #print(table.schema)
 
 #print(client.list_rows(table).to_dataframe())
 
+# query = """
+#         SELECT city
+#         FROM `bigquery-public-data.openaq.global_air_quality`
+#         WHERE country = 'US'
+#         """
+
+# client = bigquery.Client()
+
+# #Set up the query
+# query_job = client.query(query)
+
+# #API request - run the query, and return a pandas DataFrame
+# us_cities = query_job.to_dataframe()
+
+# print(us_cities)
+
 query = """
-        SELECT city
+        SELECT country
         FROM `bigquery-public-data.openaq.global_air_quality`
-        WHERE country = 'US'
+        WHERE unit = "ppm"
         """
 
 client = bigquery.Client()
-
-#Set up the query
 query_job = client.query(query)
-
-#API request - run the query, and return a pandas DataFrame
-us_cities = query_job.to_dataframe()
-
-print(us_cities)
+ppm_unit = query_job.to_dataframe()
+print(ppm_unit)
