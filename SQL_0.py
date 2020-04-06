@@ -14,7 +14,7 @@ def implicit():
     print(buckets)
 
 
-
+#Path to the google credentials file.
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"C:\Users\100689998\Documents\python-scripts\Interview-codes\horizontal-ray-245215-61f00bf119a8.json"
 #creating a client object
 client = bigquery.Client()
