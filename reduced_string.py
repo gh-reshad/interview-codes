@@ -13,7 +13,7 @@ def superReducedString(s):
         
  
     print(arr)
-    for j in range(len(s)):
+    for j in range(len(arr)):
         if arr[j] % 2 == 0:
             letter = chr(j + 97)
             if letter in s:
