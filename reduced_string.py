@@ -5,6 +5,7 @@ import random
 import sys
 
 def superReducedString(s):
+    #s = np.array(s)
     arr = np.zeros(26,)
     reduced_arr = []
     for i in range(len(s)):
@@ -18,12 +19,15 @@ def superReducedString(s):
             letter = chr(j + 97)
             if letter in s:
                 pass
+
         elif arr[j] % 2 == 1:
             letter = chr(j + 97)
             if letter in s:
-                reduced_arr.append(letter)                
+                index = s.index(letter)
+                reduced_arr.insert(index, letter)
+                               
                 
-    if len(reduced_arr) == 0:
+    if len(s) == 0:
         return 'empry string'
     else:
         return reduced_arr
