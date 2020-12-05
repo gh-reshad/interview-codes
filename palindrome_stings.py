@@ -11,5 +11,5 @@ def isPalindrome(s):
 
 string = 'malayalam'
 string1 = 'ababab'
-result = isPalindrome(string1)
+result = isPalindrome(string)
 print(result)
